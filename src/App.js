@@ -19,9 +19,6 @@ const App = ()=>{
 
     const [isLoggedIn,setIsLoggedIn] = useState(false)
 
-    
-    //
-
     return (
         <>
         <IndexNavbar IsLoggedIn={isLoggedIn}/>
@@ -37,7 +34,7 @@ const App = ()=>{
             />
             <Route
                 path="/dashboard"
-                render={props => <ProfilePage {...props} />}
+                render={() => <ProfilePage setIsLoggedIn={setIsLoggedIn} />}
             />
             <Route path="/forgot_password" component={ForgotPage} />
             <Route path="/logout" render={()=>(<LogoutPage setIsLoggedIn={setIsLoggedIn}/>)}  />

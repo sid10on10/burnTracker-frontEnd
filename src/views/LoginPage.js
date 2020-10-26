@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import classnames from "classnames";
+import {useHistory } from "react-router-dom"
 // reactstrap components
 import {
   Button,
@@ -27,6 +28,8 @@ import { Link } from "react-router-dom";
 // new functional component
 const LoginPage = (props) => {
 
+  const history = useHistory ()
+  
   const [squares,setSquares ] = useState({squares1to6: "",squares7and8: ""})
 
   const [email,setEmail] = useState("")
@@ -82,13 +85,21 @@ const LoginPage = (props) => {
       // console.log(res)
       let data = await res.json()
       //alert(data.message)
-      localStorage.setItem("token",data.token)
-      setNotification(true)
-      props.setIsLoggedIn(true)
-      setMessage(data.message)
-      setEmail("")
-      setPassword("")
-      props.history.push('/')
+      if(data.message==="Login Successfull"){
+        localStorage.setItem("token",data.token)
+        setNotification(true)
+        props.setIsLoggedIn(true)
+        setMessage(data.message)
+        setEmail("")
+        setPassword("")
+        history.push('/dashboard/exercise')
+      }else{
+        setNotification(true)
+        setMessage(data.message)
+        setEmail("")
+        setPassword("")
+      }
+      
     })
     .catch((error)=>{
       console.log(error)
