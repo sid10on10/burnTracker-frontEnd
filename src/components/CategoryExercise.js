@@ -46,7 +46,7 @@ const Logs = (props)=>{
     useEffect(()=>{
         let token = localStorage.getItem("token")
         if(token){
-            fetch(`http://localhost:5000/category/${categoryid}/exercises`,{
+            fetch(`https://burntracker.herokuapp.com/category/${categoryid}/exercises`,{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const Logs = (props)=>{
     useEffect(()=>{
         let token = localStorage.getItem("token")
         if(token){
-            fetch("http://localhost:5000/exercise",{
+            fetch("https://burntracker.herokuapp.com/exercise",{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const Logs = (props)=>{
         let token = localStorage.getItem("token")
         if(token){
             let data = {exercise,categoryid}
-            let res = await fetch("http://localhost:5000/category/exercise/add",{
+            let res = await fetch("https://burntracker.herokuapp.com/category/exercise/add",{
                 method:"POST",
                 body:JSON.stringify(data),
                 headers: {

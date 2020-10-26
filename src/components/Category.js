@@ -44,7 +44,7 @@ const Category = (props)=>{
     useEffect(()=>{
         let token = localStorage.getItem("token")
         if(token){
-            fetch('http://localhost:5000/category',{
+            fetch('https://burntracker.herokuapp.com/category',{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const Category = (props)=>{
         let token = localStorage.getItem("token")
         if(token){
             let data = {name}
-            let res = await fetch("http://localhost:5000/category/add",{
+            let res = await fetch("https://burntracker.herokuapp.com/category/add",{
                 method:"POST",
                 body:JSON.stringify(data),
                 headers: {

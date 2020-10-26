@@ -74,7 +74,7 @@ const LoginPage = (props) => {
     setNotification(false)
     setMessage("")
     let data = {email,password}
-    fetch('http://localhost:5000/login', {
+    fetch('https://burntracker.herokuapp.com/login', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

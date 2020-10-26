@@ -65,7 +65,7 @@ const ForgotPage = (props) => {
       setNotification(false)
       setMessage("")
       let data = {email}
-      fetch('http://localhost:5000/reset_password', {
+      fetch('https://burntracker.herokuapp.com/reset_password', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

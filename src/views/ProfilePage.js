@@ -15,7 +15,7 @@ const ProfilePage = (props)=>{
     let token = localStorage.getItem("token")
     //console.log(token)
     if(token){
-      fetch('http://localhost:5000/verify',{
+      fetch('https://burntracker.herokuapp.com/verify',{
         method:"GET",
         headers: {
             'Content-Type': 'application/json',

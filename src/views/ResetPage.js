@@ -68,7 +68,7 @@ const ResetPage = (props) =>{
       },[])
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reset/${userid}/${reset_token}`)
+        fetch(`https://burntracker.herokuapp.com/reset/${userid}/${reset_token}`)
         .then(async (res)=>{
             let data = await res.json()
             //console.log(data)
@@ -89,7 +89,7 @@ const ResetPage = (props) =>{
         setNotification(false)
         setMessage("")
         let data = {email,password}
-        fetch('http://localhost:5000/reset', {
+        fetch('https://burntracker.herokuapp.com/reset', {
           method: 'POST',
           body: JSON.stringify(data),
           headers: {

@@ -69,7 +69,7 @@ const RegisterPage = (props) => {
     setNotification(false)
     setMessage("")
     let data = {name,email,password}
-    fetch('http://localhost:5000/signup', {
+    fetch('https://burntracker.herokuapp.com/signup', {
       method: 'POST',
       body: JSON.stringify(data),
       headers: {

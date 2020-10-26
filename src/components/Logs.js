@@ -46,7 +46,7 @@ const Logs = (props)=>{
     useEffect(()=>{
         let token = localStorage.getItem("token")
         if(token){
-            fetch(`http://localhost:5000/exercise/${exerciseid}/logs`,{
+            fetch(`https://burntracker.herokuapp.com/exercise/${exerciseid}/logs`,{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const Logs = (props)=>{
             var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
             var datetime = time+" "+date
             let data = {reps,weight,notes,datetime,exerciseid}
-            let res = await fetch("http://localhost:5000/exercise/logs/add",{
+            let res = await fetch("https://burntracker.herokuapp.com/exercise/logs/add",{
                 method:"POST",
                 body:JSON.stringify(data),
                 headers: {
